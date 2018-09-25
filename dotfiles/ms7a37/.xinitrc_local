@@ -1,0 +1,11 @@
+#!/bin/sh
+
+xrandr --dpi 108.79
+xsetroot -cursor_name left_ptr
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
+for output in $(xrandr --prop | grep -E -o -i "^[A-Z\-]+-[0-9]+")
+do
+  xrandr --output "$output" --set "scaling mode" "Full aspect"
+done
