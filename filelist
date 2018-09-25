@@ -8,4 +8,8 @@ ms7a37=ms7a37,bin,config,shell,x
 .xinitrc_local:ms7a37
 .xinitrc_local:zbook
 .xinitrc_local:eeepc
+.Xresources:x
+.Xresources_local:ms7a37
+.Xresources_local:zbook
+.Xresources_local:eeepc
 
