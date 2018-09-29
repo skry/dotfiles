@@ -1,7 +1,10 @@
 ms7a37=ms7a37,bin,config,shell,x
 
 # Shell
-.dircolors:shell
+.bash_profile:shell
+.bashrc:shell
+.dir_colors:shell
+.profile:shell
 
 # X
 .xinitrc:x
