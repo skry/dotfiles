@@ -4,7 +4,7 @@ zbook=zbook,bin,config,shell,x
 # Config
 .config/bspwm/autostart:zbook
 .config/bspwm/bspwmrc:config
-.config/sxhkd/sxhkdrc
+.config/sxhkd/sxhkdrc:config
 
 # Shell
 .bash_profile:shell
