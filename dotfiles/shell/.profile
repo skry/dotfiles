@@ -3,6 +3,7 @@
 # Variables
 export EDITOR=vim
 export PAGER=less
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Color in less
 if [ -f "/usr/bin/source-highlight-esc.sh" ]; then

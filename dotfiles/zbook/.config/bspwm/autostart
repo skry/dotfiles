@@ -1,0 +1,7 @@
+#!/bin/sh
+## $HOME/.config/bspwm/autostart
+
+fc-cache &
+cbatticon &
+nm-applet &
+
