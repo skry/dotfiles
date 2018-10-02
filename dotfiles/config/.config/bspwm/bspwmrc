@@ -2,6 +2,16 @@
 
 sxhkd &
 
+# Monitors
+i=0
+n=`bspc query -M | wc -l`  # count number of lines in bspwm's monitor list
+per=$(( 8 / n ))          # number of desktops per monitor
+for monitor in `bspc query -M`; do
+    bspc monitor $monitor -d `seq $i $(( i + per - 1 ))` 
+    # seq is end-inclusive; `seq 1 $((1+2))` returns "1 2 3"
+    i=$(( i + per ))
+done
+
 bspc config border_width         2
 bspc config window_gap          12
 
@@ -12,16 +22,17 @@ bspc config focus_by_distance    true
 bspc config history_aware_focus  true
 bspc config click_to_focus       true
 
-bspc monitor -d 1 2 3 4 5
-
 bspc rule -a Gimp desktop=^8 state=floating follow=on
 bspc rule -a Chromium desktop=^2
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 
 $HOME/bin/polybar.sh
 
+# source local configuration
+if [ -f "$XDG_CONFIG_HOME/bspwm/bspwmrc_local" ]; then
+  . "$XDG_CONFIG_HOME/bspwm/bspwmrc_local"
+fi
+
+# Autostart
 if [ -f "$XDG_CONFIG_HOME/bspwm/autostart" ]; then
   . "$XDG_CONFIG_HOME/bspwm/autostart"
 fi

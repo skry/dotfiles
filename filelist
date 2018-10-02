@@ -1,9 +1,12 @@
 ms7a37=ms7a37,bin,config,shell,x
 zbook=zbook,bin,config,shell,x
+workvm=workvm,bin,config,shell,x
 
 # Config
 .config/bspwm/autostart:zbook
 .config/bspwm/bspwmrc:config
+.config/bspwm/bspwmrc_local:ms7a37
+.config/bspwm/bspwmrc_local:workvm
 .config/sxhkd/sxhkdrc:config
 
 # Shell

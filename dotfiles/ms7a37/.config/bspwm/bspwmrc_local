@@ -1,0 +1,4 @@
+#!/bin/sh
+bspc rule -a Gimp desktop=^8 state=floating follow=on
+bspc rule -a Chromium desktop=^2
+

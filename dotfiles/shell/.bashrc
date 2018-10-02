@@ -1,5 +1,8 @@
 # $HOME/.bashrc
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # Aliases
 alias grep='grep --color=auto'
 alias ls='ls --color=auto --time-style=long-iso'
@@ -7,6 +10,7 @@ alias pdraw='echo - | awk "{printf \"%.1f\", $(( $(cat /sys/class/power_supply/B
 
 # Variables
 export BROWSER=chromium
+export SDKMAN_DIR="$HOME/.sdkman"
 
 # Proper history: Append to log from all instances, ignoring duplicates
 unset HISTFILESIZE
@@ -19,10 +23,6 @@ shopt -s histappend
 # Disable completion when input buffer is empty
 shopt -s no_empty_cmd_completion
 
-if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
-  . /usr/share/nvm/init-nvm.sh
-fi
-
 # Directory colors
 if [ -f "$HOME/.dir_colors" ]; then
   eval `dircolors -b $HOME/.dir_colors`
@@ -33,5 +33,23 @@ if [ -f "/usr/bin/liquidprompt" ]; then
   . /usr/bin/liquidprompt
 else
   PS1='[\u@\h \W]\$ '
+fi
+
+# ssh-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > $HOME/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<$HOME/.ssh-agent-thing)"
+fi
+
+# nvm
+if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
+  . /usr/share/nvm/init-nvm.sh
+fi
+
+# sdkman
+if [ -f "$SDKMAN_DIR/bin/sdkman-init.sh" ]; then
+  . $SDKMAN_DIR/bin/sdkman-init.sh
 fi
 
