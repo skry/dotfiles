@@ -7,6 +7,7 @@ workvm=workvm,bin,config,shell,x
 .config/bspwm/bspwmrc:config
 .config/bspwm/bspwmrc_local:ms7a37
 .config/bspwm/bspwmrc_local:workvm
+.config/fontconfig/fonts.conf:config
 .config/sxhkd/sxhkdrc:config
 
 # Shell
