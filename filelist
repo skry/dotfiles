@@ -19,6 +19,7 @@ workvm=workvm,bin,config,shell,x
 # X
 .xinitrc:x
 .xinitrc_local:ms7a37
+.xinitrc_local:workvm
 .Xresources:x
 .Xresources_local:ms7a37
 

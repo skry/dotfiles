@@ -1,0 +1,4 @@
+# $HOME/.xinitrc_local
+
+VBoxClient-all
+
