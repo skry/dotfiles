@@ -1,11 +1,8 @@
 #!/bin/sh
 
-xresources=( /etc/X11/xinit/.Xresources
-             $HOME/.Xresources
-             $HOME/.Xresources_local
-)
+xresources="/etc/X11/xinit/.Xresources $HOME/.Xresources $HOME/.Xresources_local"
 
-for xresource in "${xresources[@]}"; do
+for xresource in $xresources; do
   if [ -f "$xresource" ]; then
     xrdb -merge "$xresource"
   fi
